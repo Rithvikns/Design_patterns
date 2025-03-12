@@ -167,3 +167,4 @@ The **Bridge Pattern** helps create a flexible and scalable design by replacing 
 ### References
 - "Design Patterns: Elements of Reusable Object-Oriented Software" by Gamma, Helm, Johnson, and Vlissides (Gang of Four).
 - Various online programming resources and tutorials.
+- Read this blog for Bridge - https://refactoring.guru/design-patterns/bridge
