@@ -42,9 +42,9 @@ Refined Abstraction    Implementor
                       Concrete Implementor
 ```
 
-## Implementation in Code
+## Implementation in Python
 
-### Example 1: Shape Rendering (Python)
+### Example 1: Shape Rendering
 ```python
 from abc import ABC, abstractmethod
 
@@ -92,64 +92,61 @@ circle1.draw()  # Output: Drawing a circle with radius 5 using vector rendering
 circle2.draw()  # Output: Drawing pixels for a circle with radius 10
 ```
 
-### Example 2: Device & Remote Control (Java)
-```java
-// Implementor
-interface Device {
-    void turnOn();
-    void turnOff();
-}
+### Example 2: Device & Remote Control
+```python
+from abc import ABC, abstractmethod
 
-// Concrete Implementors
-class TV implements Device {
-    public void turnOn() {
-        System.out.println("Turning on the TV");
-    }
-    public void turnOff() {
-        System.out.println("Turning off the TV");
-    }
-}
+# Implementor
+class Device(ABC):
+    @abstractmethod
+    def turn_on(self):
+        pass
+    
+    @abstractmethod
+    def turn_off(self):
+        pass
 
-class Radio implements Device {
-    public void turnOn() {
-        System.out.println("Turning on the Radio");
-    }
-    public void turnOff() {
-        System.out.println("Turning off the Radio");
-    }
-}
+# Concrete Implementors
+class TV(Device):
+    def turn_on(self):
+        print("Turning on the TV")
+    
+    def turn_off(self):
+        print("Turning off the TV")
 
-// Abstraction
-abstract class RemoteControl {
-    protected Device device;
-    public RemoteControl(Device device) {
-        this.device = device;
-    }
-    abstract void togglePower();
-}
+class Radio(Device):
+    def turn_on(self):
+        print("Turning on the Radio")
+    
+    def turn_off(self):
+        print("Turning off the Radio")
 
-// Refined Abstraction
-class BasicRemote extends RemoteControl {
-    public BasicRemote(Device device) {
-        super(device);
-    }
-    public void togglePower() {
-        System.out.println("Toggling power...");
-        device.turnOn();
-        device.turnOff();
-    }
-}
+# Abstraction
+class RemoteControl(ABC):
+    def __init__(self, device: Device):
+        self.device = device
+    
+    @abstractmethod
+    def toggle_power(self):
+        pass
 
-// Usage
-public class Main {
-    public static void main(String[] args) {
-        Device tv = new TV();
-        Device radio = new Radio();
+# Refined Abstraction
+class BasicRemote(RemoteControl):
+    def toggle_power(self):
+        print("Toggling power...")
+        self.device.turn_on()
+        self.device.turn_off()
 
-        RemoteControl remote = new BasicRemote(tv);
-        remote.togglePower();
-    }
-}
+# Usage
+if __name__ == "__main__":
+    tv = TV()
+    radio = Radio()
+    
+    remote = BasicRemote(tv)
+    remote.toggle_power()
+    
+    remote = BasicRemote(radio)
+    remote.toggle_power()
 ```
 
 ## Benefits of Bridge Pattern
