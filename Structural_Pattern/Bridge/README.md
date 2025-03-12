@@ -41,6 +41,44 @@ Refined Abstraction    Implementor
                       |
                       Concrete Implementor
 ```
+# Abstract Method 
+The @abstractmethod decorator in Python is used to define an abstract method inside an abstract base class (ABC).
+
+Key Points:
+It enforces that any subclass must implement the method.
+It prevents instances of the abstract class from being created.
+It promotes consistency across subclasses.
+
+## Example 
+```python
+from abc import ABC, abstractmethod
+
+# Abstract Base Class
+class Animal(ABC):
+    
+    @abstractmethod
+    def make_sound(self):
+        """This method must be implemented by subclasses."""
+        pass
+
+# Concrete Subclass
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof!"
+
+# dog = Animal()  # ❌ ERROR: Cannot instantiate abstract class
+dog = Dog()  # ✅ Works fine
+print(dog.make_sound())  # Output: Woof!
+
+```
+### How It Works
+- ABC (Abstract Base Class): The Animal class inherits from ABC, making it an abstract class.
+- @abstractmethod: The make_sound method is defined but not implemented in Animal, forcing subclasses to provide their own implementation.
+- Instantiation Restriction: If you try to instantiate Animal directly, Python will raise an error.
+Why Use @abstractmethod?
+✅ Ensures subclasses implement necessary methods.
+✅ Provides a blueprint for derived classes.
+✅ Helps in maintaining a clean, structured design.
 
 ## Implementation in Python
 
