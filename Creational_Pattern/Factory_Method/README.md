@@ -1,9 +1,9 @@
 # Factory Method Pattern in Python
 
-# The Factory Method is a creational design pattern that provides an interface for creating objects
-# but allows subclasses to alter the type of objects that will be created.
+## The Factory Method is a creational design pattern that provides an interface for creating objects
+## but allows subclasses to alter the type of objects that will be created.
 
-# Step 1: Create an interface (abstract class) for the product
+### Step 1: Create an interface (abstract class) for the product
 from abc import ABC, abstractmethod
 
 class Animal(ABC):
@@ -11,7 +11,7 @@ class Animal(ABC):
     def speak(self):
         pass
 
-# Step 2: Create concrete implementations of the product
+### Step 2: Create concrete implementations of the product
 class Dog(Animal):
     def speak(self):
         return "Woof!"
@@ -20,7 +20,7 @@ class Cat(Animal):
     def speak(self):
         return "Meow!"
 
-# Step 3: Create the Factory Method
+### Step 3: Create the Factory Method
 class AnimalFactory(ABC):
     @abstractmethod
     def create_animal(self):
@@ -34,7 +34,7 @@ class CatFactory(AnimalFactory):
     def create_animal(self):
         return Cat()
 
-# Step 4: Client Code
+### Step 4: Client Code
 if __name__ == "__main__":
     dog_factory = DogFactory()
     cat_factory = CatFactory()
