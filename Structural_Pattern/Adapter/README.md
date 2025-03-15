@@ -46,25 +46,23 @@ each with its own unique interface. Instead of modifying each legacy class,
  we create adapters that translate the old methods into a standard interface.
 
 ## Key Components:
- 1. **Legacy Classes (PayPal, Stripe, Razorpay)** - These classes represent existing systems
-#    with different methods to process payments.
-# 2. **Target Interface (PaymentProcessor)** - This is the expected interface in the new system.
-# 3. **Adapter Classes (PayPalAdapter, StripeAdapter, RazorpayAdapter)** - These classes wrap
-#    the legacy classes and implement the common interface by delegating the calls appropriately.
-# 4. **Client Code** - Uses the adapters to interact with different payment gateways uniformly.
+1. **Legacy Classes (PayPal, Stripe, Razorpay)** - These classes represent existing systems with different methods to process payments.
+2. **Target Interface (PaymentProcessor)** - This is the expected interface in the new system.
+3. **Adapter Classes (PayPalAdapter, StripeAdapter, RazorpayAdapter)** - These classes wrap the legacy classes and implement the common interface by delegating the calls appropriately.
+4. **Client Code** - Uses the adapters to interact with different payment gateways uniformly.
 
-# Benefits:
-# - Enables integration of legacy systems without modifying their code.
-# - Provides a clean and consistent interface for clients.
-# - Enhances maintainability and flexibility by separating concerns.
+## Benefits:
+- Enables integration of legacy systems without modifying their code.
+- Provides a clean and consistent interface for clients.
+- Enhances maintainability and flexibility by separating concerns.
 
-# Usage:
-# - The client instantiates adapter objects for each payment gateway and calls the `pay` method.
-# - The adapters internally call the appropriate method on the legacy class,
-#   ensuring seamless compatibility.
-#
-# Example Output:
-# Processed $100 using PayPal.
-# Paid $100 via Stripe.
-# Transaction of $100 started with Razorpay.
-
+## Usage:
+- The client instantiates adapter objects for each payment gateway and calls the `pay` method.
+- The adapters internally call the appropriate method on the legacy class, ensuring seamless compatibility.
+  
+## Example Output:
+```console
+ Processed $100 using PayPal.
+ Paid $100 via Stripe.
+ Transaction of $100 started with Razorpay.
+```
