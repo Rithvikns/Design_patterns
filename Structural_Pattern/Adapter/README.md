@@ -13,11 +13,14 @@ class OldPrinter:
 ```
 
 ## New system expects a different interface
+```python
 class ModernPrinter:
     def print_text(self, text):
         return f"Modern Printer Output: {text}"
+```
 
 ## Adapter class to make OldPrinter compatible with ModernPrinter's interface
+```python
 class PrinterAdapter:
     def __init__(self, old_printer):
         self.old_printer = old_printer
@@ -25,10 +28,13 @@ class PrinterAdapter:
     def print_text(self, text):
         # Adapting old_print method to new print_text method
         return self.old_printer.old_print(text)
-
+```
 # Usage
+```python
 old_printer = OldPrinter()
 adapted_printer = PrinterAdapter(old_printer)
-
+```
 # The new system expects print_text method
+```python
 print(adapted_printer.print_text("Hello, Adapter Pattern!"))
+```
