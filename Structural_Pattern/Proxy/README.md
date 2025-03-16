@@ -81,4 +81,5 @@ python proxy.py
 ## **Conclusion**
 This implementation of the **Proxy Pattern** helps in controlling access and enhancing functionality without modifying the real object.
 
-
+## Reference
+For more information on proxy you can refer this website https://refactoring.guru/design-patterns/proxy
