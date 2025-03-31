@@ -49,6 +49,10 @@ The Memento Pattern consists of three main components:
 ## Conclusion
 The Memento Pattern is essential for preserving object state in a controlled manner while maintaining encapsulation. It is widely used in applications requiring rollback or undo capabilities.
 
+## Reference
+
+https://refactoring.guru/design-patterns/memento
+
 ---
 **Feel free to contribute or improve this repository!** 🚀
 
