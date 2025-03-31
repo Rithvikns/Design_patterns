@@ -29,7 +29,6 @@ The Memento Pattern consists of three main components:
 
 ## Use Cases
 - **Undo/Redo functionality** in applications.
-- 
 - **Checkpoint systems** in games.
 - **Transactional operations** where rollback is needed.
 
