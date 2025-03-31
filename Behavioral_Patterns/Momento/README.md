@@ -57,25 +57,24 @@ https://refactoring.guru/design-patterns/memento
 # Python Implementation 
 Let's break down the Python implementation of the Memento Design Pattern step by step.
 
-1. Memento Class
+## Memento Class
 The Memento class is responsible for storing a snapshot of the Originator's state.
 
-python
-Copy
-Edit
+```python
 class Memento:
     def __init__(self, state):
         self._state = state
 
     def get_state(self):
         return self._state
+```
 It has one private attribute (_state), which stores the object's state.
 
 The get_state() method returns the stored state.
 
 This class is immutable—it doesn't allow modifications after creation.
 
-2. Originator Class
+## Originator Class
 The Originator is the main object whose state needs to be saved and restored.
 
 python
