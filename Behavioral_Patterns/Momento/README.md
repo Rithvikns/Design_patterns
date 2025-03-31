@@ -77,9 +77,7 @@ This class is immutable—it doesn't allow modifications after creation.
 ## Originator Class
 The Originator is the main object whose state needs to be saved and restored.
 
-python
-Copy
-Edit
+```python
 class Originator:
     def __init__(self):
         self._state = ""  # Default state
@@ -95,6 +93,7 @@ class Originator:
     def restore_state(self, memento):
         self._state = memento.get_state()  # Restores the saved state
         print(f"Restored state to: {self._state}")
+```
 Key Methods:
 set_state(state):
 
@@ -114,12 +113,10 @@ Retrieves the saved state from a Memento and updates the Originator's state.
 
 Prints the restored state.
 
-3. Caretaker Class
+## Caretaker Class
 The Caretaker manages multiple mementos and provides a way to retrieve them.
 
-python
-Copy
-Edit
+```python
 class Caretaker:
     def __init__(self):
         self._mementos = []  # Stores the saved mementos
@@ -129,6 +126,7 @@ class Caretaker:
 
     def get_memento(self, index):
         return self._mementos[index]  # Retrieves a saved memento
+```
 Key Responsibilities:
 Stores Memento objects in _mementos (list).
 
