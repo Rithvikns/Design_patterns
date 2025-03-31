@@ -127,6 +127,7 @@ class Caretaker:
     def get_memento(self, index):
         return self._mementos[index]  # Retrieves a saved memento
 ```
+
 Key Responsibilities:
 Stores Memento objects in _mementos (list).
 
@@ -134,10 +135,8 @@ Provides add_memento() to store a snapshot.
 
 Provides get_memento(index) to retrieve a previously saved state.
 
-4. Client Code (Using the Pattern)
-python
-Copy
-Edit
+## Client Code (Using the Pattern)
+```python
 if __name__ == "__main__":
     originator = Originator()
     caretaker = Caretaker()
@@ -152,7 +151,9 @@ if __name__ == "__main__":
 
     print("\nUndoing changes...\n")
     originator.restore_state(caretaker.get_memento(0))  # Restore first state
-Execution Steps:
+```
+
+### Execution Steps:
 Create Originator and Caretaker.
 
 Set "State 1" and save it in Caretaker.
@@ -163,10 +164,8 @@ Set "State 3" but do not save it.
 
 Restore "State 1" using the first saved Memento.
 
-Output
-perl
-Copy
-Edit
+## Output
+```console
 Setting state to: State 1
 Saving state: State 1
 Setting state to: State 2
@@ -176,6 +175,8 @@ Setting state to: State 3
 Undoing changes...
 
 Restored state to: State 1
+```
+
 What Happens?
 The originator changes state multiple times.
 
@@ -183,7 +184,7 @@ The caretaker stores snapshots of "State 1" and "State 2".
 
 The program restores "State 1" (undo operation).
 
-🔹 Key Takeaways
+## Key Takeaways
 ✅ Encapsulation Maintained: Memento keeps state private, so no external class modifies it directly.
 ✅ Undo/Redo Enabled: The caretaker allows rolling back to previous states.
 ✅ Scalability: More states can be added and retrieved efficiently.
