@@ -26,52 +26,6 @@ The Memento Pattern consists of three main components:
 +-------------+      +-------------+      +-------------+
 ```
 
-## Implementation (Java Example)
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-// Memento class
-class Memento {
-    private final String state;
-    public Memento(String state) { this.state = state; }
-    public String getState() { return state; }
-}
-
-// Originator class
-class Originator {
-    private String state;
-    public void setState(String state) { this.state = state; }
-    public String getState() { return state; }
-    public Memento saveState() { return new Memento(state); }
-    public void restoreState(Memento memento) { this.state = memento.getState(); }
-}
-
-// Caretaker class
-class Caretaker {
-    private final List<Memento> mementoList = new ArrayList<>();
-    public void addMemento(Memento m) { mementoList.add(m); }
-    public Memento getMemento(int index) { return mementoList.get(index); }
-}
-
-// Client Code
-public class MementoPatternDemo {
-    public static void main(String[] args) {
-        Originator originator = new Originator();
-        Caretaker caretaker = new Caretaker();
-        
-        originator.setState("State1");
-        caretaker.addMemento(originator.saveState());
-        
-        originator.setState("State2");
-        caretaker.addMemento(originator.saveState());
-        
-        System.out.println("Current State: " + originator.getState());
-        originator.restoreState(caretaker.getMemento(0));
-        System.out.println("Restored State: " + originator.getState());
-    }
-}
-```
 
 ## Use Cases
 - **Undo/Redo functionality** in applications.
